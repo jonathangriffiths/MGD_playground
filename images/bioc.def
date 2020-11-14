@@ -1,0 +1,13 @@
+Bootstrap: docker
+From: bioconductor/bioconductor_docker:RELEASE_3_12
+
+%help
+    MGD_playground image for running scripts in R
+
+%environment
+    export BASILISK_USE_SYSTEM_DIR=1
+
+%post
+    apt-get update && apt-get -y upgrade
+    export BASILISK_USE_SYSTEM_DIR=1
+    Rscript -e "BiocManager::install(c('MouseGastrulationData', 'scater', 'scran', 'scuttle', 'snifter', 'uwot', 'cowplot', 'tidyverse', 'velociraptor'))"
