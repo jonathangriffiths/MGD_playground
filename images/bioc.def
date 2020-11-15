@@ -10,4 +10,4 @@ From: bioconductor/bioconductor_docker:RELEASE_3_12
 %post
     apt-get update && apt-get -y upgrade
     export BASILISK_USE_SYSTEM_DIR=1
-    Rscript -e "BiocManager::install(c('MouseGastrulationData', 'scater', 'scran', 'scuttle', 'snifter', 'uwot', 'cowplot', 'tidyverse', 'velociraptor'))"
+    Rscript -e "BiocManager::install(c('MouseGastrulationData', 'scater', 'scran', 'scuttle', 'snifter', 'uwot', 'cowplot', 'tidyverse', 'velociraptor', 'LoomExperiment'))"

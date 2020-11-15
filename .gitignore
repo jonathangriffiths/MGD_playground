@@ -1,2 +1,8 @@
 *DS_Store
-*simg
+*.simg
+*.sif
+*cache
+*.loom
+*.out
+*.png
+*backup
