@@ -10,15 +10,7 @@ library(ggplot2)
 library(cowplot)
 theme_set(theme_cowplot())
 
-####
-# Gut data
-####
-
-sce = EmbryoAtlasData(get.spliced = TRUE)
-sce = sce[, sce$celltype %in% c("Gut", "Visceral endoderm", "ExE endoderm", "Def. endoderm", "Notochord")]
-sce = sce[, !(sce$doublet | sce$stripped)]
-
-sce = logNormCounts(sce)
+sce = readRDS("../data/gut/sce.rds")
 reducedDim(sce, "new_umap") = uwot::umap(reducedDim(sce, "pca.corrected"), min_dist = 0.7)
 
 velo = scvelo(

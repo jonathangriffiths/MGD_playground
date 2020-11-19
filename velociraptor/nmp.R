@@ -10,17 +10,7 @@ library(ggplot2)
 library(cowplot)
 theme_set(theme_cowplot())
 
-####
-# NMPs
-####
-
-md = AtlasSampleMetadata
-samp = md[md$stage == "E8.5", "sample"]
-
-sce = EmbryoAtlasData(samp=samp, get.spliced = TRUE)
-sce = sce[, sce$celltype %in% c("NMP", "Somitic mesoderm", "Paraxial mesoderm", "Spinal cord", "Caudal Mesoderm", "Caudal epiblast")]
-sce = sce[,!(sce$doublet|sce$stripped)]
-sce = logNormCounts(sce)
+sce = readRDS("../data/nmp/sce.rds")
 reducedDim(sce, "new_umap") = uwot::umap(reducedDim(sce, "pca.corrected"), min_dist = 0.7)
 
 velo = scvelo(

@@ -10,16 +10,7 @@ library(ggplot2)
 library(cowplot)
 theme_set(theme_cowplot())
 
-####
-# Mixed gastrulation sample
-####
-
-md = AtlasSampleMetadata
-samp = md[md$stage == "mixed_gastrulation", "sample"][1]
-
-sce = EmbryoAtlasData(samp=samp, get.spliced = TRUE)
-sce = sce[,!(sce$doublet|sce$stripped)]
-sce = logNormCounts(sce)
+sce = readRDS("../data/mixed_gast/sce.rds")
 reducedDim(sce, "new_umap") = uwot::umap(reducedDim(sce, "pca.corrected"), min_dist = 0.7)
 
 velo = scvelo(
