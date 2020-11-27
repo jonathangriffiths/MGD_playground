@@ -1,0 +1,10 @@
+Bootstrap: docker
+From: pytorch/pytorch:latest
+
+%help
+    MGD_playground image for running scVI
+
+%post
+    apt-get update && apt-get -y upgrade
+    export PATH="/opt/conda/bin/:$PATH"
+    pip install scvi-tools[tutorials] plotnine openTSNE
