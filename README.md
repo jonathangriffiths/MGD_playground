@@ -19,10 +19,10 @@ all of which can be accessed using ExperimentHub and saved as loom files.
 2. Prepare the data with `get-data` scripts
 
 3. Run the scripts with the relevant image!
-Scripts for a method are contained in their 
-The naming should be self-explanatory (e.g. `bioc.sif` is for the R code). 
+Scripts for a method are contained in their own folders.
+The naming should be self-explanatory for images (e.g. `bioc.sif` is for the R code). 
 
 ## Contributions
 
-Please, if you have a method you would like to demonstrate, please do contribute it here - pull requests are very welcome.
+If you have a method you would like to demonstrate, please do contribute it here - pull requests are very welcome.
 Just make a folder that contains the scripts to run your code, and a definition file for a singularity image (or a docker image).
