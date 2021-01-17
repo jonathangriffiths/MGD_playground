@@ -14,13 +14,14 @@ sce = sce[, sce$celltype %in% c("NMP", "Somitic mesoderm",
     "Paraxial mesoderm", "Spinal cord", "Caudal Mesoderm", 
     "Caudal epiblast")]
 sce = sce[,!(sce$doublet|sce$stripped)]
-counts(sce) = as(counts(sce), "dgCMatrix")
 sce = logNormCounts(sce)
 
 out = "../data/nmp"
 if(!dir.exists(out)) dir.create(out, recursive=TRUE)
 saveRDS(sce, file = file.path(out, "sce.rds"))
 
-loom = SingleCellLoomExperiment(sce)
-LoomExperiment::export(loom, 
+reducedDims(sce) = NULL #some bug in the reducedDims at the moment
+scle <- as(sce, "SingleCellLoomExperiment")
+LoomExperiment::export(scle, 
     file.path(out, "loom.loom"))
+

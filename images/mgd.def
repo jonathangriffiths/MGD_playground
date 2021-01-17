@@ -1,0 +1,9 @@
+Bootstrap: docker
+From: bioconductor/bioconductor_docker:devel
+
+%help
+    MGD_playground image for getting data
+
+%post
+    apt-get update && apt-get -y upgrade
+    Rscript -e "BiocManager::install(c('MouseGastrulationData', 'scater', 'scran', 'scuttle', 'LoomExperiment'))"
