@@ -6,4 +6,11 @@ From: bioconductor/bioconductor_docker:devel
 
 %post
     apt-get update && apt-get -y upgrade
-    Rscript -e "BiocManager::install(c('MouseGastrulationData', 'scater', 'scran', 'scuttle', 'LoomExperiment'))"
+    export BASILISK_USE_SYSTEM_DIR=1
+    Rscript -e "BiocManager::install(c('MouseGastrulationData',
+        'scater',
+        'scran',
+        'scuttle',
+        'LoomExperiment',
+        'zellkonverter',
+        'languageserver'))"
