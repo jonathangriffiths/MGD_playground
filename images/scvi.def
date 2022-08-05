@@ -7,4 +7,4 @@ From: pytorch/pytorch:latest
 %post
     apt-get update && apt-get -y upgrade
     export PATH="/opt/conda/bin/:$PATH"
-    pip install scvi-tools[tutorials] plotnine openTSNE
+    pip install scvi-tools[tutorials] plotnine openTSNE captum

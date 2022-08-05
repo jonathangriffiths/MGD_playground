@@ -1,0 +1,10 @@
+name: scvi
+dependencies:
+  - openTSNE
+  - pip
+  - pip:
+    - scvi-tools[tutorials]
+    - torch
+    - plotnine
+    - captum
+  
