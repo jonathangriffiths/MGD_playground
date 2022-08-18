@@ -1,0 +1,12 @@
+Bootstrap: docker
+From: pytorch/pytorch:latest
+
+%help
+    MGD_playground image for running PHATE
+    Maybe not ideal that it pulls from torch but it is easier to setup like that
+    and scvi-tutorials includes all the relevant scRNAseq packages
+
+%post
+    apt-get update && apt-get -y upgrade
+    export PATH="/opt/conda/bin/:$PATH"
+    pip install scvi-tools[tutorials] plotnine openTSNE captum phate

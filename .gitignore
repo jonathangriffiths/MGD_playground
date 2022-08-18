@@ -6,4 +6,6 @@
 *.out
 *.png
 *backup
-*.loom
+*.h5ad
+*.rds
+*.tsv
